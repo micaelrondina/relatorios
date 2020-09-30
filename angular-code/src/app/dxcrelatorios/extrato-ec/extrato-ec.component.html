@@ -1,0 +1,71 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100%" fxFlex="100" class="tela-filtro-grid-padrao">
+    <mat-card class="mat-card-filtro">
+      <mat-card-content>
+        <app-filtro-consulta [titulo]="'Extrato do EC'" (objectFiltro)="receberObjetoFiltro($event)" [exibirBtnExport]="exibirBtnExport"
+          (onExport)="exportAsXLSX()"></app-filtro-consulta>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <div class="grid-container">
+        <table mat-table [dataSource]="extratoEC" matSort (matSortChange)="sortData($event)" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="Comercio">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Comercio</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.comercio}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Filial">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Filial</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sucursal}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Produto">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Produto</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.producto}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Rubrica">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Rubrica </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.rubrica}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Data Transação">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Data Transação </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.dataTransacao}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Data Vencimento">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Data Vencimento </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.dataVencimento}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Data Liquidação">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Data Liquidação</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.dataLiquidacao}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Descrição">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.descricao}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Valor">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Valor </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.valor}} </mat-cell>
+          </ng-container>
+          | <!-- >currency:'BRL':true } -->
+          <ng-container matColumnDef="Saldo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Saldo</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.saldo}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+      </div>
+    </mat-card>
+
+  </div>
+</div>

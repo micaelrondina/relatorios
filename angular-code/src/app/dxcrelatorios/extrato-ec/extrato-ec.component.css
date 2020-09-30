@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+
+  h1 {
+    text-align:center;
+  }
+
+  mat-form-field {
+    margin-right: 12px;
+  }
+
+  .tabela-padrao tr.mat-row {
+    cursor: pointer;
+}
+
+.tabela-padrao tr.mat-row:hover {
+    background: #e8e3e3c7;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+
+

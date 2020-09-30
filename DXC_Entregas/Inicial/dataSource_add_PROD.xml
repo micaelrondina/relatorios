@@ -1,0 +1,28 @@
+                <datasource jta="true" jndi-name="java:/jdbc/OracleDS/DXC_RELAT" pool-name="DXC_RELAT" enabled="true" use-ccm="false">
+                    <connection-url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=brsmcbcuacedc.CARDSDMZ.local)(PORT=1521))(LOAD_BALANCE=YES)(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ace)))</connection-url>
+                    <driver-class>oracle.jdbc.OracleDriver</driver-class>
+                    <driver>oracle</driver>
+                    <new-connection-sql>select 1 from dual</new-connection-sql>
+                    <pool>
+                        <min-pool-size>2</min-pool-size>
+                        <max-pool-size>50</max-pool-size>
+                        <prefill>true</prefill>
+                        <use-strict-min>true</use-strict-min>
+                    </pool>
+                    <security>
+                        <user-name>PRODISSR</user-name>
+                        <password>${VAULT::ISSUERDS::password::1}</password>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+                        <check-valid-connection-sql>select 1 from dual</check-valid-connection-sql>
+                        <validate-on-match>false</validate-on-match>
+                        <background-validation>true</background-validation>
+                        <background-validation-millis>3000000</background-validation-millis>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+                    </validation>
+                    <statement>
+                        <track-statements>true</track-statements>
+                        <share-prepared-statements>false</share-prepared-statements>
+                    </statement>
+                </datasource>

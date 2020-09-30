@@ -1,0 +1,98 @@
+<mat-card-title>{{titulo}}</mat-card-title>
+<div class="row">
+  <form [formGroup]="formSearch" (ngSubmit)="onSubmitSearch()">
+
+
+    <div class="col-md-4">
+      <mat-form-field>
+        <mat-select placeholder="Adquirente" formControlName="acquirerId" (selectionChange)="changeParametros()">
+          <mat-option *ngFor="let adq of listAdquirentes" [value]="adq">
+            {{adq.acquirerId}} - {{adq.descricao}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formSearch.get('acquirerId').invalid">{{getRequiredMessage('acquirerId')}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="periodo-de">
+      <mat-label>Vencimento: de </mat-label>
+    </div>
+
+    <div class="col-md-3">
+      <mat-form-field>
+        <input matInput [matDatepicker]="datePickerInicio" placeholder="Selecione Data Início" formControlName="dataInicio">
+        <mat-datepicker-toggle matSuffix [for]="datePickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #datePickerInicio disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+
+    <div class="perido-a">
+      <mat-label> a</mat-label>
+    </div>
+
+    <div class="col-md-3">
+      <mat-form-field>
+        <input matInput [matDatepicker]="datePickerFim" placeholder="Selecione Data Fim" formControlName="dataFim">
+        <mat-datepicker-toggle matSuffix [for]="datePickerFim"></mat-datepicker-toggle>
+        <mat-datepicker #datePickerFim disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="comercio">
+      <mat-form-field>
+        <mat-label>Comercio</mat-label>
+        <input matInput placeholder="Ex. 1234" formControlName="comercio">
+        <mat-error *ngIf="formSearch.get('comercio').hasError('pattern')">
+          Comercio suporta apenas numeros
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="filial">
+      <mat-form-field>
+        <mat-label>Filial</mat-label>
+        <input matInput placeholder="Ex. 123" formControlName="filial">
+        <mat-error *ngIf="formSearch.get('filial').hasError('pattern')">
+          Filial suporta apenas numeros
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="rubrica">
+      <mat-form-field>
+        <mat-label>Rubrica</mat-label>
+        <input matInput placeholder="Ex. 1234" formControlName="rubrica">
+        <mat-error *ngIf="formSearch.get('rubrica').hasError('pattern')">
+          Rubrica suporta apenas numeros
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="produto">
+      <mat-form-field>
+        <mat-label> Produto</mat-label>
+        <input matInput placeholder="Ex. 1" formControlName="produto">
+        <mat-error *ngIf="formSearch.get('produto').hasError('pattern')">
+          Produto suporta apenas numeros
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+
+
+    <div class="buttonBuscar">
+      <button class="mt10" type="submit" mat-raised-button color="primary">Buscar
+        <mat-icon class="icon">search</mat-icon>
+      </button>
+    </div>
+  </form>
+
+  <div class="export" *ngIf="exibirBotaoExport()">
+    <button class="mt10" mat-raised-button color="success" (click)="clickExport()">Baixar Excel
+      <mat-icon>trending_down</mat-icon>
+    </button>
+  </div>
+
+</div>

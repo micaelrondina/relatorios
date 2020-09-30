@@ -1,0 +1,9 @@
+.limit-filter{
+    border: 1px solid #e0e0e0; 
+    max-height: 600px; 
+    overflow-y: auto
+}
+
+.invisible{
+    display: none
+}

@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100%" fxFlex="100">
+
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>Backoffice: Relatório de Eventos 1386 - Download</mat-card-title>
+            <div *ngIf=!temArquivos>
+                Nenhum arquivo disponível para download!
+            </div>
+            <div *ngIf=temArquivos>
+                <div class="lista-arquivos-download">
+                    <mat-list>
+                        <h3 mat-subheader>Arquivos Disponíveis para Download (Formato .ZIP)</h3>
+                        <mat-list-item *ngFor="let rel of relatorios">
+                            <mat-icon class="icon-donwload" (click)="downloadFile(rel.idRel)" mat-list-icon matTooltip="Baixar este arquivo">cloud_download</mat-icon>
+                            <h4 mat-line>{{rel.nomeRelat}}</h4>
+                            <mat-divider></mat-divider>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+  </div>
+</div>

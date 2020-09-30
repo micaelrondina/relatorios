@@ -1,0 +1,86 @@
+.tabela-padrao {
+    width: 100%;
+  }
+
+.button-row {
+  display: flex;
+}
+
+.periodo-de {
+    float: left;
+    display: block;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.perido-a {
+    float: left;
+    display: block;
+    margin-top: 20px;
+}
+
+.mt10 {
+    margin-top: 40px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+
+.totalizacao {
+    float: left;
+}
+
+.filtro {
+    margin-left: 15px;
+    float: left;
+}
+
+.filtro-item {
+    margin-right: 20px;
+}
+
+.rubrica {
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.comercio{
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.produto{
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.filial{
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.buttonBuscar{
+    float: right;
+    margin-right: 125px;
+}
+
+.export {
+    float: right;
+    margin-right: 100px;
+}
+
+
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-success,
+.mat-fab.mat-success,
+.mat-mini-fab.mat-success {
+  color: #f0fff3;
+  background-color: #155724;
+}
+

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-7 text-left">
+      <p>{{ msgLista }}</p>
+    </div>
+    <div class="col-xs-5 text-right">
+      <mat-form-field *ngIf="valores.length>1">
+        <input matInput [(ngModel)]="filtro">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 limit-filter">
+      <mat-selection-list #selecao [(ngModel)]="value">
+        <mat-list-option checkboxPosition='before' *ngFor="let valor of valores" [value]="valor" 
+        [ngClass]="{'invisible': filtrar(valor.id+'-'+valor.name+(valor.taxes!=null?valor.taxes:'')+(valor.mcc!=null?'mcc '+valor.mcc:''))}"
+        (click)="limparFiltro()" >
+            {{valor.id}}-{{valor.name}}{{valor.taxes!=null?" ( "+valor.taxes+" )":""}}{{valor.mcc!=null?" (mcc "+valor.mcc+" )":""}}            
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+  <div class="row" *ngIf="valores.length>1">
+    <div class="col-xs-6 text-left" *ngIf="!marcarTodasOff">
+      <mat-checkbox labelPosition='after' (click)="selectAll(selecao)" [disabled]="disabledSelectAll()" [(ngModel)]="marcarTodas">Selecionar todas opções</mat-checkbox>
+    </div>
+    <div class="col-xs-6 text-right">
+      <p>Opções selecionadas: {{selecao.selectedOptions.selected.length}}</p>
+    </div>
+  </div>
+</div>

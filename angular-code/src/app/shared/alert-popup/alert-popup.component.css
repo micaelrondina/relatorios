@@ -1,0 +1,30 @@
+.icon-alerta{
+    font-size: 120px;
+    text-align: center;
+    width: 100%;
+}
+
+.message-alerta{
+    text-align: center;
+    width: 100%;
+}
+
+.button-alerta{
+    margin: 0 auto;
+}
+
+.sucess-alerta{
+    color: #079e07
+}
+
+.warn-alerta{
+    color: #ffa700
+}
+
+.fail-alerta{
+    color: #fd5252
+}
+
+.default-alerta{
+    color: #0e75d0
+}
